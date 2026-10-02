@@ -1,0 +1,64 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>ref</title>
+<style>html,body{margin:0;background:#0b1b5e}canvas{display:block}</style>
+</head><body>
+<canvas id="c"></canvas>
+<script>
+  // A bold composition reference for img2img: fat white bars with dark gaps reflected in a dark blue
+  // door, one dent pinching the bars into an oval, a dark left third with a soft ceiling highlight,
+  // a body line low on the panel. Plain Canvas 2D; the diffusion model supplies the material.
+  // query: ?w=1344&h=768&dent=0.70,0.46&sigma=0.085&x0=0.40&pitch=16&duty=0.58
+  var q = new URLSearchParams(location.search);
+  var W = +q.get("w") || 1344, H = +q.get("h") || 768;
+  var c = document.getElementById("c"); c.width = W; c.height = H;
+  var g = c.getContext("2d");
+  var dent = (q.get("dent") || "0.70,0.46").split(",").map(Number);
+  var cx = dent[0] * W, cy = dent[1] * H, sig = (+q.get("sigma") || 0.085) * W;
+  var x0 = (+q.get("x0") || 0.40) * W;
+  var pitch = H / (+q.get("pitch") || 16), duty = +q.get("duty") || 0.58;
+
+  // paint: darker left, lighter where the board lights it
+  var grad = g.createLinearGradient(0, 0, W, 0);
+  grad.addColorStop(0, "#071345"); grad.addColorStop(0.3, "#0b1b5e"); grad.addColorStop(0.55, "#15309a"); grad.addColorStop(1, "#1a3bb4");
+  g.fillStyle = grad; g.fillRect(0, 0, W, H);
+  // ceiling highlight on the dark side
+  var hl = g.createRadialGradient(W * 0.16, H * 0.14, 10, W * 0.16, H * 0.14, W * 0.22);
+  hl.addColorStop(0, "rgba(140,160,220,0.55)"); hl.addColorStop(1, "rgba(140,160,220,0)");
+  g.fillStyle = hl; g.fillRect(0, 0, W, H);
+
+  function py(y, x) { // pinch toward the dent, plus the door's gentle crown
+    var dy = y - cy, dx = x - cx;
+    var gg = Math.exp(-(dx * dx + dy * dy) / (sig * sig));
+    return y - dy * 0.62 * gg + 0.00006 * (x - W * 0.7) * (x - W * 0.7) - 0.00003 * (y - H * 0.5) * (y - H * 0.5);
+  }
+  // the bars, clipped to a soft-edged board region
+  g.save();
+  var fade = g.createLinearGradient(x0 - 30, 0, x0 + 180, 0);
+  g.fillStyle = "#eef1fc";
+  for (var i = -2; i < 24; i++) {
+    var yb = i * pitch + pitch * 0.5, top = yb - pitch * duty / 2, bot = yb + pitch * duty / 2;
+    g.beginPath();
+    for (var x = x0 - 60; x <= W; x += 3) { var yy = py(top, x); if (x === x0 - 60) g.moveTo(x, yy); else g.lineTo(x, yy); }
+    for (var x2 = W; x2 >= x0 - 60; x2 -= 3) g.lineTo(x2, py(bot, x2));
+    g.closePath(); g.fill();
+  }
+  // fade the board's left edge back into the paint
+  g.globalCompositeOperation = "destination-out";
+  fade.addColorStop(0, "rgba(0,0,0,1)"); fade.addColorStop(1, "rgba(0,0,0,0)");
+  g.fillStyle = fade; g.fillRect(0, 0, x0 + 180, H);
+  g.globalCompositeOperation = "destination-over";
+  g.fillStyle = grad; g.fillRect(0, 0, W, H);
+  g.fillStyle = hl; g.fillRect(0, 0, W, H);
+  g.restore();
+  // dent floor darkens, upper rim brightens
+  var sh = g.createRadialGradient(cx, cy + sig * 0.1, 0, cx, cy, sig * 0.9);
+  sh.addColorStop(0, "rgba(5,10,40,0.45)"); sh.addColorStop(1, "rgba(5,10,40,0)");
+  g.fillStyle = sh; g.fillRect(0, 0, W, H);
+  g.strokeStyle = "rgba(255,250,235,0.85)"; g.lineWidth = 3;
+  g.beginPath(); g.ellipse(cx, cy, sig * 0.95, sig * 0.8, 0, Math.PI * 1.1, Math.PI * 1.9); g.stroke();
+  // body line
+  g.strokeStyle = "rgba(170,190,240,0.9)"; g.lineWidth = 3;
+  g.beginPath(); g.moveTo(0, H * 0.80); g.lineTo(W, H * 0.80 - 8); g.stroke();
+  document.title = "ref ok";
+</script>
+</body></html>

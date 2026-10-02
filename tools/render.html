@@ -1,0 +1,35 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>render</title>
+<style>html,body{margin:0;background:#0b1b5e}canvas{display:block}</style>
+</head><body>
+<canvas id="c"></canvas>
+<script src="../panel.js"></script>
+<script>
+  // ?preset=demo|read|push|straight   (the demo card's static fallback and the three process plates)
+  var q = new URLSearchParams(location.search);
+  var preset = q.get("preset") || "demo";
+  var P = {
+    demo:     { w: 640,  h: 400, depth: 1,    dent: [0.58, 0.52], sigma: 0.19 * 400 / 640, lamp: [0.36, 0.24], pitch: 28, fade: null, body: 0 },
+    read:     { w: 640,  h: 400, depth: 1,    dent: [0.60, 0.50], sigma: 0.14,  lamp: [0.34, 0.22], pitch: 36, fade: null, body: 0 },
+    push:     { w: 640,  h: 400, depth: 0.32, dent: [0.60, 0.50], sigma: 0.14,  lamp: [0.34, 0.22], pitch: 36, fade: null, body: 0 },
+    straight: { w: 640,  h: 400, depth: 0,    dent: [0.60, 0.50], sigma: 0.14,  lamp: [0.34, 0.22], pitch: 36, fade: null, body: 0 }
+  }[preset];
+  var c = document.getElementById("c");
+  var W = P.w, H = P.h;
+  c.style.width = W + "px"; c.style.height = H + "px";
+  var R = DRPPanel.create(c, { preserve: true, paint: "#1A3BB4", paintDeep: "#0B1B5E" });
+  R.resize(W, H, 1);
+  R.render({
+    depth: P.depth,
+    dent: [P.dent[0] * W, P.dent[1] * H],
+    sigma: P.sigma * W,
+    lamp: [P.lamp[0] * W, P.lamp[1] * H],
+    pitch: P.pitch,
+    boardY: 0,
+    bodyLine: P.body ? P.body * H : 0,
+    fade: P.fade ? [P.fade[0] * W, P.fade[1] * W, P.fade[2] * H, P.fade[3] * H] : null,
+    exposure: 1
+  });
+  document.title = R.gl ? "gl ok " + preset : "no gl";
+</script>
+</body></html>

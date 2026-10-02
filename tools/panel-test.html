@@ -1,0 +1,31 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>panel test</title>
+<style>html,body{margin:0;background:#15309a}canvas{display:block}</style>
+</head><body>
+<canvas id="c"></canvas>
+<script src="../panel.js"></script>
+<script>
+  // query: ?w=1440&h=900&depth=1&lamp=0.58,0.3&dent=0.72,0.44&sigma=0.105&fade=1
+  var q = new URLSearchParams(location.search);
+  var W = +q.get("w") || 1440, H = +q.get("h") || 900;
+  var c = document.getElementById("c");
+  c.style.width = W + "px"; c.style.height = H + "px";
+  var P = DRPPanel.create(c, { preserve: true });
+  P.resize(W, H, +q.get("dpr") || 1);
+  var lamp = (q.get("lamp") || "0.58,0.30").split(",").map(Number);
+  var dent = (q.get("dent") || "0.72,0.44").split(",").map(Number);
+  var fade = q.get("fade") === "0" ? null : [W * 0.40, W * 0.56, H * 0.10, H * 0.80];
+  P.render({
+    depth: q.has("depth") ? +q.get("depth") : 1,
+    dent: [dent[0] * W, dent[1] * H],
+    sigma: (+q.get("sigma") || 0.105) * W,
+    lamp: [lamp[0] * W, lamp[1] * H],
+    pitch: +q.get("pitch") || 44,
+    boardY: 0,
+    bodyLine: q.has("bodyline") ? +q.get("bodyline") * H : H * 0.78,
+    fade: fade,
+    exposure: +q.get("exp") || 1
+  });
+  document.title = P.gl ? "gl ok" : "no gl";
+</script>
+</body></html>

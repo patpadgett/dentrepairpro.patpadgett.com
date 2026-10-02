@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <script>document.documentElement.className = document.documentElement.className.replace("no-js", "js");</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dent Repair Pro — Paintless Dent Repair, Lenexa, Kansas</title>
+  <meta name="description" content="Paintless dent repair in Lenexa, Kansas. Door dings, hail, and creases pushed out from behind the panel with no filler and no repaint: the factory finish stays. Call John at (816) 694-6288.">
+  <link rel="canonical" href="https://dentrepairpro.patpadgett.com/">
+  <meta name="theme-color" content="#15309A">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Dent Repair Pro — The lines don't lie.">
+  <meta property="og:description" content="Paintless dent repair in Lenexa, Kansas. The metal goes back without filler or repaint. Call (816) 694-6288.">
+  <meta property="og:url" content="https://dentrepairpro.patpadgett.com/">
+  <meta property="og:image" content="https://dentrepairpro.patpadgett.com/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/BigShouldersDisplay-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/Archivo-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoBodyShop",
+    "name": "Dent Repair Pro, LLC",
+    "description": "Paintless dent repair (PDR) in Lenexa, Kansas.",
+    "telephone": "+18166946288",
+    "url": "https://dentrepairpro.patpadgett.com/",
+    "address": { "@type": "PostalAddress", "addressLocality": "Lenexa", "addressRegion": "KS", "postalCode": "66215", "addressCountry": "US" },
+    "founder": { "@type": "Person", "name": "John Matthews" },
+    "knowsAbout": "Paintless dent repair"
+  }
+  </script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<section class="hero panel" id="top">
+  <div class="hero-plate" aria-hidden="true">
+    <picture>
+      <source media="(max-width: 820px)" srcset="assets/hero-mobile.jpg">
+      <img src="assets/hero-desktop.jpg" alt="" width="1920" height="1200" fetchpriority="high" decoding="async">
+    </picture>
+  </div>
+
+  <header class="masthead">
+    <a class="brand" href="#top">
+      <img src="assets/mark.svg" width="36" height="36" alt="">
+      <span class="brand-name">Dent Repair Pro</span>
+      <span class="brand-place">Lenexa, Kansas</span>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#fixes">What PDR fixes</a>
+      <a href="#how">How it works</a>
+      <a href="#prepare">Before you call</a>
+      <a href="#questions">Questions</a>
+    </nav>
+    <a class="plate plate-light masthead-call" href="tel:+18166946288">
+      <svg class="icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M4.2 2.8h3.1l1.6 3.9-2 1.6a10.6 10.6 0 0 0 4.8 4.8l1.6-2 3.9 1.6v3.1A1.6 1.6 0 0 1 15.6 17 13.6 13.6 0 0 1 3 4.4a1.6 1.6 0 0 1 1.2-1.6Z"/></svg>
+      <span>(816) 694‑6288</span>
+    </a>
+  </header>
+
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <h1 class="display">The lines<br>don't lie.</h1>
+      <p class="lede">Under a PDR board, a dent is a bend in straight lines. The repair is pushing the metal back from behind the panel until the lines run straight again, with no filler and no repaint.</p>
+      <div class="actions">
+        <a class="plate plate-light" href="tel:+18166946288">Call (816) 694‑6288</a>
+        <a class="plate plate-outline" href="#fixes">What PDR fixes</a>
+      </div>
+      <p class="hero-caption">A door ding under a line board. <span class="hero-caption-note">Rendered illustration, not a photograph of a repair.</span></p>
+    </div>
+
+    <div class="board-card" id="board" data-depth="1">
+      <div class="board-card-head">
+        <h2 class="board-card-title">Push the dent</h2>
+        <span class="push-readout" id="push-readout" aria-hidden="true">Not pushed yet</span>
+      </div>
+      <div class="board-stage">
+        <canvas id="board-canvas" aria-hidden="true"></canvas>
+        <picture class="board-static">
+          <source media="(max-width: 820px)" srcset="assets/demo-static.jpg">
+          <img src="assets/demo-static.jpg" alt="" width="640" height="400" decoding="async">
+        </picture>
+      </div>
+      <div class="push">
+        <label for="push">Drag to push it flat</label>
+        <input id="push" class="push-range" type="range" min="0" max="100" value="0" step="1" aria-describedby="push-status" aria-valuetext="Dent at full depth">
+      </div>
+      <p class="board-status" id="push-status" aria-live="polite">A door ding, the way the board reads it: the lines pinch toward the low spot.</p>
+      <p class="board-note js-only">Interactive demonstration, rendered on your device. Not a photograph.</p>
+      <p class="board-note no-js-only">A rendered illustration of a door ding under a line board, not a photograph.</p>
+    </div>
+  </div>
+  <div class="hero-light" aria-hidden="true"></div>
+</section>
+
+<main id="main">
+
+  <section class="board-section" id="fixes">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="display">What PDR fixes, and what it doesn't.</h2>
+        <p class="intro">Paintless dent repair has one hard rule: the paint has to be sound. Inside that rule it covers more than most people expect. Outside it, a body shop is the honest answer, and you should hear that on the phone, not after a drive.</p>
+      </div>
+
+      <div class="fit-grid">
+        <div class="fit-col">
+          <h3><svg class="mark" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.5" fill="currentColor"/></svg>Good candidates</h3>
+          <ul>
+            <li>Door dings and parking-lot dents</li>
+            <li>Hail, from a few hits to a whole roof</li>
+            <li>Dents up to roughly baseball size on flat or gently curved panels</li>
+            <li>Soft creases without sharp folds</li>
+            <li>Dents on doors, fenders, hoods, roofs, and quarter panels</li>
+            <li>Lease-return and resale touch-ups</li>
+          </ul>
+        </div>
+        <div class="fit-col">
+          <h3><svg class="mark" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10 2.5a7.5 7.5 0 0 1 0 15Z" fill="currentColor"/></svg>Depends on the inspection</h3>
+          <ul>
+            <li>Dents on a body line, crease, or panel edge</li>
+            <li>Deep or sharp dents where the metal may be stretched</li>
+            <li>Dents over inner bracing with no access behind them</li>
+            <li>Aluminum panels, which hold less memory than steel</li>
+            <li>Panels that have been filled or repainted before</li>
+            <li>Light scratches in the paint over the dent</li>
+          </ul>
+        </div>
+        <div class="fit-col">
+          <h3><svg class="mark" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>Not a PDR job</h3>
+          <ul>
+            <li>Cracked, chipped, or flaking paint</li>
+            <li>Metal torn or stretched by a hard impact</li>
+            <li>Plastic bumper covers</li>
+            <li>Collision damage that moved the panel off its mounts</li>
+            <li>Rust under the dent</li>
+          </ul>
+          <p class="fit-foot">Not sure which column you're in? That is what the call is for. <a href="#prepare">Read your dent first</a> and the answer comes faster.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process-section" id="how">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="display">How a dent comes out.</h2>
+        <p class="intro">No sanding, no filler, no primer, no paint. The technician works the metal itself, reading every push in the reflection of the board.</p>
+      </div>
+    </div>
+    <div class="strip" role="list">
+      <figure role="listitem">
+        <img src="assets/plate-read.jpg" width="640" height="400" alt="Rendered illustration: reflected board lines pulled toward a door ding in blue paint" loading="lazy" decoding="async">
+        <figcaption>
+          <h3>Read</h3>
+          <p>A line board or lamp goes over the dent. Straight lines go in; the dent bends them. The shape of the bend tells the technician exactly where the metal has moved and how far.</p>
+        </figcaption>
+      </figure>
+      <figure role="listitem">
+        <img src="assets/plate-reach.svg" width="320" height="200" alt="Diagram: cross-section of a dented panel with a steel rod reaching the underside of the dent" loading="lazy">
+        <figcaption>
+          <h3>Reach</h3>
+          <p>The tool goes behind the panel through existing openings: a window gap, a removed trim piece, a factory access hole. Where there is no way in, glue tabs pull the dent from the front instead.</p>
+        </figcaption>
+      </figure>
+      <figure role="listitem">
+        <img src="assets/plate-push.jpg" width="640" height="400" alt="Rendered illustration: the same dent most of the way flat, the reflected lines nearly straight" loading="lazy" decoding="async">
+        <figcaption>
+          <h3>Push</h3>
+          <p>Metal has memory. Hundreds of small, deliberate pushes bring the low spot up while the high ridge around it is tapped back down, a fraction of a millimeter at a time, with the board checked after each one.</p>
+        </figcaption>
+      </figure>
+      <figure role="listitem">
+        <img src="assets/plate-straight.jpg" width="640" height="400" alt="Rendered illustration: straight reflected lines over a flat blue panel" loading="lazy" decoding="async">
+        <figcaption>
+          <h3>Straight</h3>
+          <p>When the lines run straight through where the dent was, the job is done. The finish is the one the car came with: nothing to color-match, nothing to cure, nothing to blend into the next panel.</p>
+        </figcaption>
+      </figure>
+    </div>
+    <p class="strip-note wrap">Rendered illustrations of a door ding under a line board, not photographs of a repair.</p>
+  </section>
+
+  <section class="panel compare-section" id="compare">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="display">Why not just the body shop?</h2>
+        <p class="intro">Body shops are the right call for cracked paint and crumpled metal. For a dent in sound paint, PDR usually gets to the same place with less time, less cost, and the original paint still on the car. Here is what changes.</p>
+      </div>
+      <table class="compare">
+        <thead>
+          <tr><th scope="col"><span class="visually-hidden">What changes</span></th><th scope="col">Body shop</th><th scope="col">Paintless dent repair</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">The metal</th><td>Sanded, filled, primed</td><td>Moved back into shape. Nothing added.</td></tr>
+          <tr><th scope="row">The paint</th><td>Repainted and blended into the next panel</td><td>No filler, no repaint</td></tr>
+          <tr><th scope="row">Time</th><td>Typically days, often with a rental car</td><td>Typically hours for a single door ding</td></tr>
+          <tr><th scope="row">Resale</th><td>A repaint can show on a paint-depth gauge</td><td>The factory finish stays original</td></tr>
+          <tr><th scope="row">Price</th><td>Usually quoted by the panel: materials, labor, paint</td><td>Usually quoted by the dent: size, depth, location, access</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="board-section prepare-section" id="prepare">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="display">Before you call, read your dent.</h2>
+        <p class="intro">Five questions get you a straight answer on the phone, and two photos make the inspection faster. Nothing on this page is sent anywhere; your notes stay on your device until you make the call.</p>
+      </div>
+
+      <div class="prepare-grid">
+        <form class="worksheet" id="worksheet" autocomplete="off" novalidate>
+          <div class="field">
+            <label for="vehicle">Vehicle</label>
+            <input id="vehicle" name="vehicle" type="text" placeholder="2019 Honda Accord" inputmode="text" autocapitalize="words">
+          </div>
+
+          <div class="field">
+            <label for="panel-select">Where is the dent?</label>
+            <select id="panel-select" name="panel">
+              <option value="">Pick a panel</option>
+              <option>Door</option>
+              <option>Fender</option>
+              <option>Hood</option>
+              <option>Roof</option>
+              <option>Quarter panel</option>
+              <option>Trunk lid or tailgate</option>
+              <option>Bumper cover (plastic)</option>
+              <option>Not sure</option>
+            </select>
+          </div>
+
+          <fieldset class="field">
+            <legend>How big is it?</legend>
+            <div class="choices">
+              <label><input type="radio" name="size" value="about the size of a dime"><span>Dime</span></label>
+              <label><input type="radio" name="size" value="about the size of a quarter"><span>Quarter</span></label>
+              <label><input type="radio" name="size" value="about the size of a golf ball"><span>Golf ball</span></label>
+              <label><input type="radio" name="size" value="about the size of a baseball"><span>Baseball</span></label>
+              <label><input type="radio" name="size" value="bigger than a baseball"><span>Bigger</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>How many?</legend>
+            <div class="choices">
+              <label><input type="radio" name="count" value="one dent"><span>One</span></label>
+              <label><input type="radio" name="count" value="two to five dents"><span>Two to five</span></label>
+              <label><input type="radio" name="count" value="hail, dozens or more"><span>Hail</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>How is the paint over the dent?</legend>
+            <div class="choices choices-stack">
+              <label><input type="radio" name="paint" value="intact"><span>Intact. No scratch, no chip.</span></label>
+              <label><input type="radio" name="paint" value="scratched"><span>Lightly scratched or scuffed</span></label>
+              <label><input type="radio" name="paint" value="cracked"><span>Chipped, cracked, or flaking</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>Where on the panel?</legend>
+            <div class="choices choices-stack">
+              <label><input type="radio" name="position" value="flat"><span>On a flat or gently curved area</span></label>
+              <label><input type="radio" name="position" value="edge"><span>On a body line, crease, or edge</span></label>
+              <label><input type="radio" name="position" value="unsure"><span>Not sure</span></label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="notes">Anything else for the call <span class="optional">optional</span></label>
+            <textarea id="notes" name="notes" rows="3" placeholder="Shopping cart, last Tuesday. Leased, due back in March."></textarea>
+          </div>
+        </form>
+
+        <div class="prepare-side">
+          <aside class="readback" aria-labelledby="readback-title">
+            <h3 id="readback-title">What to say on the phone</h3>
+            <output class="readback-body" id="readback" for="vehicle panel-select notes" aria-live="polite"><span class="hint no-js-only">Have these ready for the call: the vehicle, the panel, how big the dent is, how many there are, whether the paint is intact, and whether it sits on a flat area or a body line. John will tell you from there whether it is a PDR job.</span></output>
+            <div class="readback-actions">
+              <a class="plate plate-dark" href="tel:+18166946288">Call (816) 694‑6288</a>
+              <button class="plate plate-outline-dark js-only" type="button" id="copy-notes">Copy notes</button>
+              <button class="plate plate-outline-dark js-only" type="button" id="save-notes">Save as text</button>
+            </div>
+            <p class="readback-status" id="readback-status" role="status"></p>
+          </aside>
+
+          <div class="photos">
+            <h3>Two photos worth having</h3>
+            <div class="photo-guides">
+              <figure>
+                <img src="assets/photo-straight.svg" width="120" height="80" alt="">
+                <figcaption><strong>Straight on,</strong> with the whole panel in frame, so the size and position are clear.</figcaption>
+              </figure>
+              <figure>
+                <img src="assets/photo-low.svg" width="120" height="80" alt="">
+                <figcaption><strong>From a low angle,</strong> so a reflection crosses the dent. A ceiling light or the edge of a garage door works.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section" id="questions">
+    <div class="wrap faq-grid">
+      <div class="section-head faq-head">
+        <h2 class="display">Questions people ask on the phone.</h2>
+        <p class="intro">Short answers here. The long ones are a phone call away.</p>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Will the repair show?<svg class="toggle" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h14"/><path class="v" d="M10 3v14"/></svg></summary>
+          <div class="answer"><p>On a typical door ding in sound paint, no: nothing is sanded, filled, or sprayed, so there is nothing to mismatch and nothing to blend. The board is the test: when the reflected lines run straight across the spot, the panel is flat. Very deep or stretched dents can leave faint texture, and you should hear that from John before the work starts, not after.</p></div>
+        </details>
+        <details>
+          <summary>Does PDR work on hail?<svg class="toggle" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h14"/><path class="v" d="M10 3v14"/></svg></summary>
+          <div class="answer"><p>Hail is where PDR earned its reputation. Dozens of shallow dents in sound paint are exactly what the method is for, and the alternative is repainting a roof, a hood, and a trunk lid. Many comprehensive insurance policies cover hail repair; check yours before you call so you know which conversation you are having.</p></div>
+        </details>
+        <details>
+          <summary>What does it cost?<svg class="toggle" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h14"/><path class="v" d="M10 3v14"/></svg></summary>
+          <div class="answer"><p>PDR is generally priced by the dent: size, depth, where it sits on the panel, and how hard it is to reach behind. The number comes from looking at the dent under the board, so a phone call sets expectations and the inspection sets the price. There is no filler or paint in the job, which is the main reason it usually costs less than bodywork.</p></div>
+        </details>
+        <details>
+          <summary>How long does it take?<svg class="toggle" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h14"/><path class="v" d="M10 3v14"/></svg></summary>
+          <div class="answer"><p>A single door ding is often an hour or two of work. Several dents, or a dent that needs trim removed for access, take longer. Hail is its own conversation and depends on the count. Either way there is nothing to dry or cure, so the car is ready as soon as the work is finished.</p></div>
+        </details>
+        <details>
+          <summary>Is it really paintless?<svg class="toggle" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h14"/><path class="v" d="M10 3v14"/></svg></summary>
+          <div class="answer"><p>Yes. No sanding, no filler, no primer, no paint. That is also the limit of the method: if the paint over the dent is already cracked or chipped, pushing the metal back will not fix the paint, and the honest answer is a body shop.</p></div>
+        </details>
+        <details>
+          <summary>My panel is aluminum. Does that matter?<svg class="toggle" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h14"/><path class="v" d="M10 3v14"/></svg></summary>
+          <div class="answer"><p>It does. Aluminum holds less memory than steel and work-hardens as it is pushed, so it asks for more skill, more time, and sometimes heat. Many hoods, tailgates, and whole truck bodies are aluminum now. Mention it when you call.</p></div>
+        </details>
+        <details>
+          <summary>Where does the work happen?<svg class="toggle" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h14"/><path class="v" d="M10 3v14"/></svg></summary>
+          <div class="answer"><p>Dent Repair Pro is based in Lenexa, Kansas, on the Kansas side of the Kansas City metro. Call <a href="tel:+18166946288">(816) 694‑6288</a> to ask about your area and arrange a look at the vehicle.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel closing" id="call">
+    <div class="closing-lines" aria-hidden="true"></div>
+    <div class="wrap">
+      <h2 class="closing-title">Call John.</h2>
+      <a class="closing-number display" href="tel:+18166946288">(816) 694‑6288</a>
+      <p class="closing-line">Dent Repair Pro, Lenexa, Kansas, listed in the <a href="https://napdrt.org/find-a-tech/" rel="noopener">NAPDRT technician directory</a>. Have the panel, the size, and the state of the paint ready, and you will get a straight answer.</p>
+      <div class="actions">
+        <a class="plate plate-light" href="tel:+18166946288">Call now</a>
+        <a class="plate plate-outline" href="#prepare">Read your dent first</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <p><strong>Dent Repair Pro, LLC</strong><br>Lenexa, Kansas 66215</p>
+    <p><a href="tel:+18166946288">(816) 694‑6288</a><br><a href="https://napdrt.org/find-a-tech/" rel="noopener">NAPDRT Find a Tech listing</a></p>
+    <p>© 2026 Dent Repair Pro, LLC<br>Site by <a href="https://patpadgett.com/" rel="noopener">Patrick Padgett</a></p>
+  </div>
+</footer>
+
+<a class="callbar plate plate-light" href="tel:+18166946288" id="callbar" aria-hidden="true" tabindex="-1">
+  <svg class="icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M4.2 2.8h3.1l1.6 3.9-2 1.6a10.6 10.6 0 0 0 4.8 4.8l1.6-2 3.9 1.6v3.1A1.6 1.6 0 0 1 15.6 17 13.6 13.6 0 0 1 3 4.4a1.6 1.6 0 0 1 1.2-1.6Z"/></svg>
+  <span>Call (816) 694‑6288</span>
+</a>
+
+<script src="panel.js" defer></script>
+<script src="script.js" defer></script>
+</body>
+</html>

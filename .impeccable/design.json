@@ -1,0 +1,484 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-02T05:00:11.699428+00:00",
+  "title": "Design System: Dent Repair Pro",
+  "extensions": {
+    "colorMeta": {
+      "panel": {
+        "role": "primary",
+        "displayName": "Panel",
+        "canonical": "#15309a",
+        "tonalRamp": [
+          "oklch(15.00% 0.17430 266.05)",
+          "oklch(26.43% 0.17430 266.05)",
+          "oklch(37.86% 0.17430 266.05)",
+          "oklch(49.29% 0.17430 266.05)",
+          "oklch(60.71% 0.17430 266.05)",
+          "oklch(72.14% 0.17430 266.05)",
+          "oklch(83.57% 0.17430 266.05)",
+          "oklch(95.00% 0.17430 266.05)"
+        ]
+      },
+      "panel-high": {
+        "role": "primary",
+        "displayName": "Panel High",
+        "canonical": "#1a3bb4",
+        "tonalRamp": [
+          "oklch(15.00% 0.19407 265.77)",
+          "oklch(26.43% 0.19407 265.77)",
+          "oklch(37.86% 0.19407 265.77)",
+          "oklch(49.29% 0.19407 265.77)",
+          "oklch(60.71% 0.19407 265.77)",
+          "oklch(72.14% 0.19407 265.77)",
+          "oklch(83.57% 0.19407 265.77)",
+          "oklch(95.00% 0.19407 265.77)"
+        ]
+      },
+      "panel-deep": {
+        "role": "primary",
+        "displayName": "Panel Deep",
+        "canonical": "#0b1b5e",
+        "tonalRamp": [
+          "oklch(15.00% 0.12031 266.69)",
+          "oklch(26.43% 0.12031 266.69)",
+          "oklch(37.86% 0.12031 266.69)",
+          "oklch(49.29% 0.12031 266.69)",
+          "oklch(60.71% 0.12031 266.69)",
+          "oklch(72.14% 0.12031 266.69)",
+          "oklch(83.57% 0.12031 266.69)",
+          "oklch(95.00% 0.12031 266.69)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Line",
+        "canonical": "#f2f5ff",
+        "tonalRamp": [
+          "oklch(15.00% 0.01373 272.69)",
+          "oklch(26.43% 0.01373 272.69)",
+          "oklch(37.86% 0.01373 272.69)",
+          "oklch(49.29% 0.01373 272.69)",
+          "oklch(60.71% 0.01373 272.69)",
+          "oklch(72.14% 0.01373 272.69)",
+          "oklch(83.57% 0.01373 272.69)",
+          "oklch(95.00% 0.01373 272.69)"
+        ]
+      },
+      "line-soft": {
+        "role": "neutral",
+        "displayName": "Line Soft",
+        "canonical": "#b7c6f2",
+        "tonalRamp": [
+          "oklch(15.00% 0.06409 270.23)",
+          "oklch(26.43% 0.06409 270.23)",
+          "oklch(37.86% 0.06409 270.23)",
+          "oklch(49.29% 0.06409 270.23)",
+          "oklch(60.71% 0.06409 270.23)",
+          "oklch(72.14% 0.06409 270.23)",
+          "oklch(83.57% 0.06409 270.23)",
+          "oklch(95.00% 0.06409 270.23)"
+        ]
+      },
+      "line-nav": {
+        "role": "neutral",
+        "displayName": "Line Nav",
+        "canonical": "#d5defa",
+        "tonalRamp": [
+          "oklch(15.00% 0.03958 271.44)",
+          "oklch(26.43% 0.03958 271.44)",
+          "oklch(37.86% 0.03958 271.44)",
+          "oklch(49.29% 0.03958 271.44)",
+          "oklch(60.71% 0.03958 271.44)",
+          "oklch(72.14% 0.03958 271.44)",
+          "oklch(83.57% 0.03958 271.44)",
+          "oklch(95.00% 0.03958 271.44)"
+        ]
+      },
+      "amber": {
+        "role": "secondary",
+        "displayName": "Amber",
+        "canonical": "#ffb454",
+        "tonalRamp": [
+          "oklch(15.00% 0.14080 70.17)",
+          "oklch(26.43% 0.14080 70.17)",
+          "oklch(37.86% 0.14080 70.17)",
+          "oklch(49.29% 0.14080 70.17)",
+          "oklch(60.71% 0.14080 70.17)",
+          "oklch(72.14% 0.14080 70.17)",
+          "oklch(83.57% 0.14080 70.17)",
+          "oklch(95.00% 0.14080 70.17)"
+        ]
+      },
+      "board": {
+        "role": "neutral",
+        "displayName": "Board",
+        "canonical": "#f4f6fb",
+        "tonalRamp": [
+          "oklch(15.00% 0.00700 268.55)",
+          "oklch(26.43% 0.00700 268.55)",
+          "oklch(37.86% 0.00700 268.55)",
+          "oklch(49.29% 0.00700 268.55)",
+          "oklch(60.71% 0.00700 268.55)",
+          "oklch(72.14% 0.00700 268.55)",
+          "oklch(83.57% 0.00700 268.55)",
+          "oklch(95.00% 0.00700 268.55)"
+        ]
+      },
+      "board-high": {
+        "role": "neutral",
+        "displayName": "Board High",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 89.88)",
+          "oklch(26.43% 0.00000 89.88)",
+          "oklch(37.86% 0.00000 89.88)",
+          "oklch(49.29% 0.00000 89.88)",
+          "oklch(60.71% 0.00000 89.88)",
+          "oklch(72.14% 0.00000 89.88)",
+          "oklch(83.57% 0.00000 89.88)",
+          "oklch(95.00% 0.00000 89.88)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#0b1340",
+        "tonalRamp": [
+          "oklch(15.00% 0.08579 269.76)",
+          "oklch(26.43% 0.08579 269.76)",
+          "oklch(37.86% 0.08579 269.76)",
+          "oklch(49.29% 0.08579 269.76)",
+          "oklch(60.71% 0.08579 269.76)",
+          "oklch(72.14% 0.08579 269.76)",
+          "oklch(83.57% 0.08579 269.76)",
+          "oklch(95.00% 0.08579 269.76)"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Ink Soft",
+        "canonical": "#3c4a86",
+        "tonalRamp": [
+          "oklch(15.00% 0.10071 271.67)",
+          "oklch(26.43% 0.10071 271.67)",
+          "oklch(37.86% 0.10071 271.67)",
+          "oklch(49.29% 0.10071 271.67)",
+          "oklch(60.71% 0.10071 271.67)",
+          "oklch(72.14% 0.10071 271.67)",
+          "oklch(83.57% 0.10071 271.67)",
+          "oklch(95.00% 0.10071 271.67)"
+        ]
+      },
+      "ink-hair": {
+        "role": "neutral",
+        "displayName": "Ink Hair",
+        "canonical": "rgba(11, 19, 64, 0.18)",
+        "tonalRamp": [
+          "oklch(15.00% 0.08579 269.76 / 0.18)",
+          "oklch(26.43% 0.08579 269.76 / 0.18)",
+          "oklch(37.86% 0.08579 269.76 / 0.18)",
+          "oklch(49.29% 0.08579 269.76 / 0.18)",
+          "oklch(60.71% 0.08579 269.76 / 0.18)",
+          "oklch(72.14% 0.08579 269.76 / 0.18)",
+          "oklch(83.57% 0.08579 269.76 / 0.18)",
+          "oklch(95.00% 0.08579 269.76 / 0.18)"
+        ]
+      },
+      "ink-rule": {
+        "role": "neutral",
+        "displayName": "Ink Rule",
+        "canonical": "rgba(11, 19, 64, 0.82)",
+        "tonalRamp": [
+          "oklch(15.00% 0.08579 269.76 / 0.82)",
+          "oklch(26.43% 0.08579 269.76 / 0.82)",
+          "oklch(37.86% 0.08579 269.76 / 0.82)",
+          "oklch(49.29% 0.08579 269.76 / 0.82)",
+          "oklch(60.71% 0.08579 269.76 / 0.82)",
+          "oklch(72.14% 0.08579 269.76 / 0.82)",
+          "oklch(83.57% 0.08579 269.76 / 0.82)",
+          "oklch(95.00% 0.08579 269.76 / 0.82)"
+        ]
+      },
+      "line-hair": {
+        "role": "neutral",
+        "displayName": "Line Hair",
+        "canonical": "rgba(242, 245, 255, 0.26)",
+        "tonalRamp": [
+          "oklch(15.00% 0.01373 272.69 / 0.26)",
+          "oklch(26.43% 0.01373 272.69 / 0.26)",
+          "oklch(37.86% 0.01373 272.69 / 0.26)",
+          "oklch(49.29% 0.01373 272.69 / 0.26)",
+          "oklch(60.71% 0.01373 272.69 / 0.26)",
+          "oklch(72.14% 0.01373 272.69 / 0.26)",
+          "oklch(83.57% 0.01373 272.69 / 0.26)",
+          "oklch(95.00% 0.01373 272.69 / 0.26)"
+        ]
+      },
+      "placeholder": {
+        "role": "neutral",
+        "displayName": "Placeholder",
+        "canonical": "#5b6794",
+        "tonalRamp": [
+          "oklch(15.00% 0.07277 272.23)",
+          "oklch(26.43% 0.07277 272.23)",
+          "oklch(37.86% 0.07277 272.23)",
+          "oklch(49.29% 0.07277 272.23)",
+          "oklch(60.71% 0.07277 272.23)",
+          "oklch(72.14% 0.07277 272.23)",
+          "oklch(83.57% 0.07277 272.23)",
+          "oklch(95.00% 0.07277 272.23)"
+        ]
+      },
+      "field-border": {
+        "role": "neutral",
+        "displayName": "Field Border",
+        "canonical": "#8d9bcb",
+        "tonalRamp": [
+          "oklch(15.00% 0.07252 271.82)",
+          "oklch(26.43% 0.07252 271.82)",
+          "oklch(37.86% 0.07252 271.82)",
+          "oklch(49.29% 0.07252 271.82)",
+          "oklch(60.71% 0.07252 271.82)",
+          "oklch(72.14% 0.07252 271.82)",
+          "oklch(83.57% 0.07252 271.82)",
+          "oklch(95.00% 0.07252 271.82)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headline"
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings"
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Process and readback headings"
+      },
+      "category": {
+        "displayName": "Category",
+        "purpose": "Fit and photo headings"
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Reading text"
+      },
+      "intro": {
+        "displayName": "Intro",
+        "purpose": "Explanatory introductions"
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Worksheet labels"
+      },
+      "closing": {
+        "displayName": "Closing",
+        "purpose": "Telephone action"
+      }
+    },
+    "shadows": [
+      {
+        "name": "pale-plate-hover",
+        "value": "0 10px 24px -12px rgba(2, 8, 40, 0.7)",
+        "purpose": "pale plate hover"
+      },
+      {
+        "name": "blue-plate-hover",
+        "value": "0 10px 24px -14px rgba(21, 48, 154, 0.8)",
+        "purpose": "blue plate hover"
+      },
+      {
+        "name": "demonstration-card",
+        "value": "0 24px 48px -28px rgba(2, 8, 40, 0.9)",
+        "purpose": "demonstration card"
+      },
+      {
+        "name": "slider-thumb",
+        "value": "0 4px 14px -6px rgba(2, 8, 40, 0.9)",
+        "purpose": "slider thumb"
+      },
+      {
+        "name": "mobile-call-bar",
+        "value": "0 14px 30px -14px rgba(2, 8, 40, 0.8)",
+        "purpose": "mobile call bar"
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-physical",
+        "value": "cubic-bezier(0.2, 0.8, 0.2, 1)",
+        "purpose": "Control transforms and call-bar movement"
+      },
+      {
+        "name": "field-state",
+        "value": "140ms",
+        "purpose": "Fields, choices, and thumb"
+      },
+      {
+        "name": "plate-state",
+        "value": "160ms",
+        "purpose": "Plates and navigation"
+      },
+      {
+        "name": "disclosure",
+        "value": "220ms",
+        "purpose": "FAQ vertical stroke rotation"
+      },
+      {
+        "name": "callbar",
+        "value": "260ms",
+        "purpose": "Call-bar reveal"
+      },
+      {
+        "name": "reduced-motion",
+        "value": "0.01ms",
+        "purpose": "Transition and animation duration when reduced motion is requested"
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "section-stack",
+        "value": "1100px"
+      },
+      {
+        "name": "worksheet-stack",
+        "value": "900px"
+      },
+      {
+        "name": "mobile-layout",
+        "value": "820px"
+      },
+      {
+        "name": "narrow",
+        "value": "560px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Plate Light",
+      "kind": "button",
+      "refersTo": "plate-light",
+      "description": "Square plate-light control; material-specific hover, focus, and disabled states.",
+      "html": "<div class=\"ds-preview ds-panel\"><button type=\"button\" class=\"ds-plate ds-plate-light\">Call (816) 694-6288</button></div>",
+      "css": ".ds-preview {font-family:var(--text, \"Archivo\", \"Helvetica Neue\", Arial, sans-serif);font-size:1.0625rem;line-height:1.55;color:var(--ink, #0b1340);background:var(--board, #f4f6fb);padding:1.5rem}.ds-preview.ds-panel {background:var(--panel, #15309a);color:var(--line, #f2f5ff)} .ds-preview :focus-visible {outline:3px solid var(--panel, #15309a);outline-offset:3px;border-radius:var(--radius, 2px)} .ds-panel :focus-visible {outline-color:var(--amber, #ffb454)} .ds-plate {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  gap: 0.6rem;\n  min-height: 3.25rem;\n  padding: 0 1.5rem;\n  border-radius: var(--radius, 2px);\n  border: 1.5px solid transparent;\n  font-weight: 600;\n  font-size: 1rem;\n  letter-spacing: 0.005em;\n  text-decoration: none;\n  white-space: nowrap;\n  cursor: pointer;\n  transition: transform 160ms cubic-bezier(0.2, 0.8, 0.2, 1), background-color 160ms, border-color 160ms, box-shadow 160ms;\n}\n.ds-plate .ds-icon { width: 1.1rem; height: 1.1rem; fill: currentColor; flex: none; }\n.ds-plate:active { transform: translateY(1px); }\n.ds-plate-light { background: var(--line, #f2f5ff); color: var(--ink, #0b1340); border-color: var(--line, #f2f5ff); }\n.ds-plate-light:hover { background: var(--board-high, #ffffff); border-color: var(--board-high, #ffffff); transform: translateY(-1px); box-shadow: 0 10px 24px -12px rgba(2, 8, 40, 0.7); }\n.ds-plate-outline { background: transparent; color: var(--line, #f2f5ff); border-color: rgba(242, 245, 255, 0.72); }\n.ds-plate-outline:hover { border-color: var(--line, #f2f5ff); background: rgba(242, 245, 255, 0.08); }\n.ds-plate-dark { background: var(--panel, #15309a); color: var(--line, #f2f5ff); border-color: var(--panel, #15309a); }\n.ds-plate-dark:hover { background: var(--panel-high, #1a3bb4); border-color: var(--panel-high, #1a3bb4); transform: translateY(-1px); box-shadow: 0 10px 24px -14px rgba(21, 48, 154, 0.8); }\n.ds-plate-outline-dark { background: transparent; color: var(--ink, #0b1340); border-color: var(--ink, #0b1340); }\n.ds-plate-outline-dark:hover { background: rgba(11, 19, 64, 0.06); }\n.ds-plate:disabled,\n.ds-plate[aria-disabled=\"true\"] {\n  cursor: not-allowed;\n  opacity: 0.45;\n  border-style: dashed;\n  box-shadow: none;\n}\n.ds-plate:disabled:hover, .ds-plate:disabled:active,\n.ds-plate[aria-disabled=\"true\"]:hover, .ds-plate[aria-disabled=\"true\"]:active {\n  transform: none;\n  box-shadow: none;\n  background: transparent;\n}\n@media(prefers-reduced-motion:reduce){.ds-preview *{transition-duration:0.01ms!important;animation-duration:0.01ms!important}}"
+    },
+    {
+      "name": "Plate Outline",
+      "kind": "button",
+      "refersTo": "plate-outline",
+      "description": "Square plate-outline control; material-specific hover, focus, and disabled states.",
+      "html": "<div class=\"ds-preview ds-panel\"><button type=\"button\" class=\"ds-plate ds-plate-outline\">What PDR fixes</button></div>",
+      "css": ".ds-preview {font-family:var(--text, \"Archivo\", \"Helvetica Neue\", Arial, sans-serif);font-size:1.0625rem;line-height:1.55;color:var(--ink, #0b1340);background:var(--board, #f4f6fb);padding:1.5rem}.ds-preview.ds-panel {background:var(--panel, #15309a);color:var(--line, #f2f5ff)} .ds-preview :focus-visible {outline:3px solid var(--panel, #15309a);outline-offset:3px;border-radius:var(--radius, 2px)} .ds-panel :focus-visible {outline-color:var(--amber, #ffb454)} .ds-plate {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  gap: 0.6rem;\n  min-height: 3.25rem;\n  padding: 0 1.5rem;\n  border-radius: var(--radius, 2px);\n  border: 1.5px solid transparent;\n  font-weight: 600;\n  font-size: 1rem;\n  letter-spacing: 0.005em;\n  text-decoration: none;\n  white-space: nowrap;\n  cursor: pointer;\n  transition: transform 160ms cubic-bezier(0.2, 0.8, 0.2, 1), background-color 160ms, border-color 160ms, box-shadow 160ms;\n}\n.ds-plate .ds-icon { width: 1.1rem; height: 1.1rem; fill: currentColor; flex: none; }\n.ds-plate:active { transform: translateY(1px); }\n.ds-plate-light { background: var(--line, #f2f5ff); color: var(--ink, #0b1340); border-color: var(--line, #f2f5ff); }\n.ds-plate-light:hover { background: var(--board-high, #ffffff); border-color: var(--board-high, #ffffff); transform: translateY(-1px); box-shadow: 0 10px 24px -12px rgba(2, 8, 40, 0.7); }\n.ds-plate-outline { background: transparent; color: var(--line, #f2f5ff); border-color: rgba(242, 245, 255, 0.72); }\n.ds-plate-outline:hover { border-color: var(--line, #f2f5ff); background: rgba(242, 245, 255, 0.08); }\n.ds-plate-dark { background: var(--panel, #15309a); color: var(--line, #f2f5ff); border-color: var(--panel, #15309a); }\n.ds-plate-dark:hover { background: var(--panel-high, #1a3bb4); border-color: var(--panel-high, #1a3bb4); transform: translateY(-1px); box-shadow: 0 10px 24px -14px rgba(21, 48, 154, 0.8); }\n.ds-plate-outline-dark { background: transparent; color: var(--ink, #0b1340); border-color: var(--ink, #0b1340); }\n.ds-plate-outline-dark:hover { background: rgba(11, 19, 64, 0.06); }\n.ds-plate:disabled,\n.ds-plate[aria-disabled=\"true\"] {\n  cursor: not-allowed;\n  opacity: 0.45;\n  border-style: dashed;\n  box-shadow: none;\n}\n.ds-plate:disabled:hover, .ds-plate:disabled:active,\n.ds-plate[aria-disabled=\"true\"]:hover, .ds-plate[aria-disabled=\"true\"]:active {\n  transform: none;\n  box-shadow: none;\n  background: transparent;\n}\n@media(prefers-reduced-motion:reduce){.ds-preview *{transition-duration:0.01ms!important;animation-duration:0.01ms!important}}"
+    },
+    {
+      "name": "Plate Dark",
+      "kind": "button",
+      "refersTo": "plate-dark",
+      "description": "Square plate-dark control; material-specific hover, focus, and disabled states.",
+      "html": "<div class=\"ds-preview\"><button type=\"button\" class=\"ds-plate ds-plate-dark\">Call (816) 694-6288</button></div>",
+      "css": ".ds-preview {font-family:var(--text, \"Archivo\", \"Helvetica Neue\", Arial, sans-serif);font-size:1.0625rem;line-height:1.55;color:var(--ink, #0b1340);background:var(--board, #f4f6fb);padding:1.5rem}.ds-preview.ds-panel {background:var(--panel, #15309a);color:var(--line, #f2f5ff)} .ds-preview :focus-visible {outline:3px solid var(--panel, #15309a);outline-offset:3px;border-radius:var(--radius, 2px)} .ds-panel :focus-visible {outline-color:var(--amber, #ffb454)} .ds-plate {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  gap: 0.6rem;\n  min-height: 3.25rem;\n  padding: 0 1.5rem;\n  border-radius: var(--radius, 2px);\n  border: 1.5px solid transparent;\n  font-weight: 600;\n  font-size: 1rem;\n  letter-spacing: 0.005em;\n  text-decoration: none;\n  white-space: nowrap;\n  cursor: pointer;\n  transition: transform 160ms cubic-bezier(0.2, 0.8, 0.2, 1), background-color 160ms, border-color 160ms, box-shadow 160ms;\n}\n.ds-plate .ds-icon { width: 1.1rem; height: 1.1rem; fill: currentColor; flex: none; }\n.ds-plate:active { transform: translateY(1px); }\n.ds-plate-light { background: var(--line, #f2f5ff); color: var(--ink, #0b1340); border-color: var(--line, #f2f5ff); }\n.ds-plate-light:hover { background: var(--board-high, #ffffff); border-color: var(--board-high, #ffffff); transform: translateY(-1px); box-shadow: 0 10px 24px -12px rgba(2, 8, 40, 0.7); }\n.ds-plate-outline { background: transparent; color: var(--line, #f2f5ff); border-color: rgba(242, 245, 255, 0.72); }\n.ds-plate-outline:hover { border-color: var(--line, #f2f5ff); background: rgba(242, 245, 255, 0.08); }\n.ds-plate-dark { background: var(--panel, #15309a); color: var(--line, #f2f5ff); border-color: var(--panel, #15309a); }\n.ds-plate-dark:hover { background: var(--panel-high, #1a3bb4); border-color: var(--panel-high, #1a3bb4); transform: translateY(-1px); box-shadow: 0 10px 24px -14px rgba(21, 48, 154, 0.8); }\n.ds-plate-outline-dark { background: transparent; color: var(--ink, #0b1340); border-color: var(--ink, #0b1340); }\n.ds-plate-outline-dark:hover { background: rgba(11, 19, 64, 0.06); }\n.ds-plate:disabled,\n.ds-plate[aria-disabled=\"true\"] {\n  cursor: not-allowed;\n  opacity: 0.45;\n  border-style: dashed;\n  box-shadow: none;\n}\n.ds-plate:disabled:hover, .ds-plate:disabled:active,\n.ds-plate[aria-disabled=\"true\"]:hover, .ds-plate[aria-disabled=\"true\"]:active {\n  transform: none;\n  box-shadow: none;\n  background: transparent;\n}\n@media(prefers-reduced-motion:reduce){.ds-preview *{transition-duration:0.01ms!important;animation-duration:0.01ms!important}}"
+    },
+    {
+      "name": "Plate Outline Dark",
+      "kind": "button",
+      "refersTo": "plate-outline-dark",
+      "description": "Square plate-outline-dark control; material-specific hover, focus, and disabled states.",
+      "html": "<div class=\"ds-preview\"><button type=\"button\" class=\"ds-plate ds-plate-outline-dark\">Copy notes</button></div>",
+      "css": ".ds-preview {font-family:var(--text, \"Archivo\", \"Helvetica Neue\", Arial, sans-serif);font-size:1.0625rem;line-height:1.55;color:var(--ink, #0b1340);background:var(--board, #f4f6fb);padding:1.5rem}.ds-preview.ds-panel {background:var(--panel, #15309a);color:var(--line, #f2f5ff)} .ds-preview :focus-visible {outline:3px solid var(--panel, #15309a);outline-offset:3px;border-radius:var(--radius, 2px)} .ds-panel :focus-visible {outline-color:var(--amber, #ffb454)} .ds-plate {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  gap: 0.6rem;\n  min-height: 3.25rem;\n  padding: 0 1.5rem;\n  border-radius: var(--radius, 2px);\n  border: 1.5px solid transparent;\n  font-weight: 600;\n  font-size: 1rem;\n  letter-spacing: 0.005em;\n  text-decoration: none;\n  white-space: nowrap;\n  cursor: pointer;\n  transition: transform 160ms cubic-bezier(0.2, 0.8, 0.2, 1), background-color 160ms, border-color 160ms, box-shadow 160ms;\n}\n.ds-plate .ds-icon { width: 1.1rem; height: 1.1rem; fill: currentColor; flex: none; }\n.ds-plate:active { transform: translateY(1px); }\n.ds-plate-light { background: var(--line, #f2f5ff); color: var(--ink, #0b1340); border-color: var(--line, #f2f5ff); }\n.ds-plate-light:hover { background: var(--board-high, #ffffff); border-color: var(--board-high, #ffffff); transform: translateY(-1px); box-shadow: 0 10px 24px -12px rgba(2, 8, 40, 0.7); }\n.ds-plate-outline { background: transparent; color: var(--line, #f2f5ff); border-color: rgba(242, 245, 255, 0.72); }\n.ds-plate-outline:hover { border-color: var(--line, #f2f5ff); background: rgba(242, 245, 255, 0.08); }\n.ds-plate-dark { background: var(--panel, #15309a); color: var(--line, #f2f5ff); border-color: var(--panel, #15309a); }\n.ds-plate-dark:hover { background: var(--panel-high, #1a3bb4); border-color: var(--panel-high, #1a3bb4); transform: translateY(-1px); box-shadow: 0 10px 24px -14px rgba(21, 48, 154, 0.8); }\n.ds-plate-outline-dark { background: transparent; color: var(--ink, #0b1340); border-color: var(--ink, #0b1340); }\n.ds-plate-outline-dark:hover { background: rgba(11, 19, 64, 0.06); }\n.ds-plate:disabled,\n.ds-plate[aria-disabled=\"true\"] {\n  cursor: not-allowed;\n  opacity: 0.45;\n  border-style: dashed;\n  box-shadow: none;\n}\n.ds-plate:disabled:hover, .ds-plate:disabled:active,\n.ds-plate[aria-disabled=\"true\"]:hover, .ds-plate[aria-disabled=\"true\"]:active {\n  transform: none;\n  box-shadow: none;\n  background: transparent;\n}\n@media(prefers-reduced-motion:reduce){.ds-preview *{transition-duration:0.01ms!important;animation-duration:0.01ms!important}}"
+    },
+    {
+      "name": "Worksheet field",
+      "kind": "input",
+      "refersTo": "worksheet-input",
+      "description": "Labeled field with explicit placeholder tint and blue focus.",
+      "html": "<div class=\"ds-preview\"><div class=\"ds-worksheet\"><div class=\"ds-field\"><label for=\"ds-vehicle\">Vehicle</label><input id=\"ds-vehicle\" type=\"text\" placeholder=\"2019 Honda Accord\"></div></div></div>",
+      "css": ".ds-preview {font-family:var(--text, \"Archivo\", \"Helvetica Neue\", Arial, sans-serif);font-size:1.0625rem;line-height:1.55;color:var(--ink, #0b1340);background:var(--board, #f4f6fb);padding:1.5rem}.ds-preview.ds-panel {background:var(--panel, #15309a);color:var(--line, #f2f5ff)} .ds-preview :focus-visible {outline:3px solid var(--panel, #15309a);outline-offset:3px;border-radius:var(--radius, 2px)} .ds-panel :focus-visible {outline-color:var(--amber, #ffb454)} .ds-field > label, .ds-field > legend {\n  display: block;\n  font-weight: 600;\n  font-size: 0.98rem;\n  margin-bottom: 0.55rem;\n  padding: 0;\n}\n.ds-worksheet input[type=\"text\"], .ds-worksheet select, .ds-worksheet textarea {\n  width: 100%;\n  padding: 0.85rem 1rem;\n  background: var(--board-high, #ffffff);\n  border: 1.5px solid #8d9bcb;\n  border-radius: var(--radius, 2px);\n  font-size: 1.05rem;\n  line-height: 1.4;\n  color: var(--ink, #0b1340);\n  transition: border-color 140ms;\n}\n.ds-worksheet textarea { resize: vertical; min-height: 4.5rem; }\n.ds-worksheet input::placeholder, .ds-worksheet textarea::placeholder { color: var(--placeholder, #5b6794); opacity: 1; }\n.ds-worksheet input:hover, .ds-worksheet select:hover, .ds-worksheet textarea:hover { border-color: var(--ink-soft, #3c4a86); }\n.ds-worksheet input:focus-visible, .ds-worksheet select:focus-visible, .ds-worksheet textarea:focus-visible {\n  border-color: var(--panel, #15309a);\n  outline-offset: 2px;\n}\n.ds-worksheet select {\n  -webkit-appearance: none;\n  appearance: none;\n  padding-right: 2.75rem;\n  background-image: url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path d='M5 8l5 5 5-5' fill='none' stroke='%230b1340' stroke-width='1.6'/></svg>\");\n  background-repeat: no-repeat;\n  background-position: right 0.9rem center;\n  background-size: 1.1rem;\n}.ds-worksheet input {font:inherit;}\n@media(prefers-reduced-motion:reduce){.ds-preview *{transition-duration:0.01ms!important;animation-duration:0.01ms!important}}"
+    },
+    {
+      "name": "Section navigation",
+      "kind": "nav",
+      "description": "Reflected navigation with underline hover and panel focus.",
+      "html": "<div class=\"ds-preview ds-panel\"><nav class=\"ds-nav\" aria-label=\"Sections\"><a href=\"#fixes\">What PDR fixes</a><a href=\"#how\">How it works</a></nav></div>",
+      "css": ".ds-preview {font-family:var(--text, \"Archivo\", \"Helvetica Neue\", Arial, sans-serif);font-size:1.0625rem;line-height:1.55;color:var(--ink, #0b1340);background:var(--board, #f4f6fb);padding:1.5rem}.ds-preview.ds-panel {background:var(--panel, #15309a);color:var(--line, #f2f5ff)} .ds-preview :focus-visible {outline:3px solid var(--panel, #15309a);outline-offset:3px;border-radius:var(--radius, 2px)} .ds-panel :focus-visible {outline-color:var(--amber, #ffb454)} .ds-nav {\n  display: flex;\n  justify-content: center;\n  gap: clamp(1rem, 2.4vw, 2.25rem);\n}\n.ds-nav a {\n  color: var(--line-nav, #d5defa);\n  text-decoration: none;\n  font-weight: 500;\n  font-size: 0.98rem;\n  padding: 0.35rem 0;\n  border-bottom: 1.5px solid transparent;\n  transition: border-color 160ms, color 160ms;\n}\n.ds-nav a:hover { color: var(--line, #f2f5ff); border-bottom-color: var(--line, #f2f5ff); }\n@media(prefers-reduced-motion:reduce){.ds-preview *{transition-duration:0.01ms!important;animation-duration:0.01ms!important}}"
+    },
+    {
+      "name": "Radio choices",
+      "kind": "chip",
+      "refersTo": "choice",
+      "description": "Native radios with plate-shaped selected and focus states.",
+      "html": "<div class=\"ds-preview\"><div class=\"ds-choices\"><label><input type=\"radio\" name=\"ds-size\" checked><span>Dime</span></label><label><input type=\"radio\" name=\"ds-size\"><span>Quarter</span></label></div></div>",
+      "css": ".ds-preview {font-family:var(--text, \"Archivo\", \"Helvetica Neue\", Arial, sans-serif);font-size:1.0625rem;line-height:1.55;color:var(--ink, #0b1340);background:var(--board, #f4f6fb);padding:1.5rem}.ds-preview.ds-panel {background:var(--panel, #15309a);color:var(--line, #f2f5ff)} .ds-preview :focus-visible {outline:3px solid var(--panel, #15309a);outline-offset:3px;border-radius:var(--radius, 2px)} .ds-panel :focus-visible {outline-color:var(--amber, #ffb454)} .ds-choices { display: flex; flex-wrap: wrap; gap: 0.5rem; }\n.ds-choices-stack { flex-direction: column; align-items: flex-start; }\n.ds-choices label { position: relative; display: inline-flex; }\n.ds-choices input {\n  position: absolute;\n  width: 1px; height: 1px;\n  opacity: 0;\n  margin: 0;\n  pointer-events: none;\n}\n.ds-choices span {\n  display: inline-flex;\n  align-items: center;\n  min-height: 2.75rem;\n  padding: 0.5rem 1rem;\n  border: 1.5px solid #8d9bcb;\n  border-radius: var(--radius, 2px);\n  background: var(--board-high, #ffffff);\n  line-height: 1.3;\n  cursor: pointer;\n  transition: background-color 140ms, border-color 140ms, color 140ms;\n}\n.ds-choices span:hover { border-color: var(--ink-soft, #3c4a86); }\n.ds-choices input:checked + span { background: var(--panel, #15309a); border-color: var(--panel, #15309a); color: var(--line, #f2f5ff); }\n.ds-choices input:focus-visible + span { outline: 3px solid var(--panel, #15309a); outline-offset: 3px; }\n@media(prefers-reduced-motion:reduce){.ds-preview *{transition-duration:0.01ms!important;animation-duration:0.01ms!important}}"
+    },
+    {
+      "name": "Readback card",
+      "kind": "card",
+      "refersTo": "readback",
+      "description": "Opaque paint card; primary action is pale on this material.",
+      "html": "<div class=\"ds-preview\"><aside class=\"ds-readback\"><h3>What to say on the phone</h3><output class=\"ds-readback-body\"><span class=\"ds-hint\">Have the vehicle, panel, and state of the paint ready.</span></output><div class=\"ds-readback-actions\"><button class=\"ds-plate ds-plate-dark\" type=\"button\">Call (816) 694-6288</button><button class=\"ds-plate ds-plate-outline-dark\" type=\"button\" disabled>Copy notes</button></div></aside></div>",
+      "css": ".ds-preview {font-family:var(--text, \"Archivo\", \"Helvetica Neue\", Arial, sans-serif);font-size:1.0625rem;line-height:1.55;color:var(--ink, #0b1340);background:var(--board, #f4f6fb);padding:1.5rem}.ds-preview.ds-panel {background:var(--panel, #15309a);color:var(--line, #f2f5ff)} .ds-preview :focus-visible {outline:3px solid var(--panel, #15309a);outline-offset:3px;border-radius:var(--radius, 2px)} .ds-panel :focus-visible {outline-color:var(--amber, #ffb454)} .ds-plate {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  gap: 0.6rem;\n  min-height: 3.25rem;\n  padding: 0 1.5rem;\n  border-radius: var(--radius, 2px);\n  border: 1.5px solid transparent;\n  font-weight: 600;\n  font-size: 1rem;\n  letter-spacing: 0.005em;\n  text-decoration: none;\n  white-space: nowrap;\n  cursor: pointer;\n  transition: transform 160ms cubic-bezier(0.2, 0.8, 0.2, 1), background-color 160ms, border-color 160ms, box-shadow 160ms;\n}\n.ds-plate .ds-icon { width: 1.1rem; height: 1.1rem; fill: currentColor; flex: none; }\n.ds-plate:active { transform: translateY(1px); }\n.ds-plate-light { background: var(--line, #f2f5ff); color: var(--ink, #0b1340); border-color: var(--line, #f2f5ff); }\n.ds-plate-light:hover { background: var(--board-high, #ffffff); border-color: var(--board-high, #ffffff); transform: translateY(-1px); box-shadow: 0 10px 24px -12px rgba(2, 8, 40, 0.7); }\n.ds-plate-outline { background: transparent; color: var(--line, #f2f5ff); border-color: rgba(242, 245, 255, 0.72); }\n.ds-plate-outline:hover { border-color: var(--line, #f2f5ff); background: rgba(242, 245, 255, 0.08); }\n.ds-plate-dark { background: var(--panel, #15309a); color: var(--line, #f2f5ff); border-color: var(--panel, #15309a); }\n.ds-plate-dark:hover { background: var(--panel-high, #1a3bb4); border-color: var(--panel-high, #1a3bb4); transform: translateY(-1px); box-shadow: 0 10px 24px -14px rgba(21, 48, 154, 0.8); }\n.ds-plate-outline-dark { background: transparent; color: var(--ink, #0b1340); border-color: var(--ink, #0b1340); }\n.ds-plate-outline-dark:hover { background: rgba(11, 19, 64, 0.06); }\n.ds-plate:disabled,\n.ds-plate[aria-disabled=\"true\"] {\n  cursor: not-allowed;\n  opacity: 0.45;\n  border-style: dashed;\n  box-shadow: none;\n}\n.ds-plate:disabled:hover, .ds-plate:disabled:active,\n.ds-plate[aria-disabled=\"true\"]:hover, .ds-plate[aria-disabled=\"true\"]:active {\n  transform: none;\n  box-shadow: none;\n  background: transparent;\n}.ds-readback .ds-plate-outline-dark:disabled { color: var(--line-soft, #b7c6f2); border-color: rgba(242, 245, 255, 0.45); }\n.ds-readback {\n  padding: clamp(1.5rem, 2.5vw, 2.25rem);\n  background: var(--panel, #15309a);\n  color: var(--line, #f2f5ff);\n  border-radius: var(--radius, 2px);\n  caret-color: var(--amber, #ffb454);\n  --focus: var(--amber, #ffb454);\n}\n.ds-readback h3 {\n  font-family: var(--display, \"Big Shoulders Display\", \"Arial Narrow\", \"Helvetica Neue\", sans-serif);\n  font-weight: 800;\n  font-size: 2rem;\n  text-transform: uppercase;\n  line-height: 1;\n}\n.ds-readback-body {\n  display: block;\n  margin-top: 1rem;\n  font-size: 1.1rem;\n  line-height: 1.55;\n  min-height: 8em;\n  white-space: pre-line;\n}\n.ds-readback-body .ds-hint { color: var(--line-soft, #b7c6f2); }\n.ds-readback-body .ds-aside { display: block; margin-top: 1.1em; padding-top: 1em; border-top: 1px solid rgba(242, 245, 255, 0.22); color: var(--line-soft, #b7c6f2); font-size: 0.95em; }\n.ds-readback-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-top: 1.5rem; }\n.ds-readback-actions .ds-plate-dark { grid-column: 1 / -1; }\n.ds-readback .ds-plate-dark { background: var(--line, #f2f5ff); color: var(--ink, #0b1340); border-color: var(--line, #f2f5ff); }\n.ds-readback .ds-plate-dark:hover { background: var(--board-high, #ffffff); border-color: var(--board-high, #ffffff); box-shadow: 0 10px 24px -12px rgba(2, 8, 40, 0.7); }\n.ds-readback .ds-plate-outline-dark { color: var(--line, #f2f5ff); border-color: rgba(242, 245, 255, 0.72); }\n.ds-readback .ds-plate-outline-dark:hover { border-color: var(--line, #f2f5ff); background: rgba(242, 245, 255, 0.08); }\n.ds-readback-status { margin-top: 0.9rem; min-height: 1.5em; font-size: 0.95rem; color: var(--line-soft, #b7c6f2); }\n.ds-readback-status:empty { display: none; }.ds-readback h3{margin:0}.ds-readback :focus-visible{outline-color:var(--amber, #ffb454)}\n@media(prefers-reduced-motion:reduce){.ds-preview *{transition-duration:0.01ms!important;animation-duration:0.01ms!important}}"
+    },
+    {
+      "name": "Push range",
+      "kind": "custom",
+      "description": "Native keyboard-operable range; WebGL scene and live status belong to the application.",
+      "html": "<div class=\"ds-preview ds-panel\"><div class=\"ds-push\"><label for=\"ds-push\">Drag to push it flat</label><input class=\"ds-push-range\" id=\"ds-push\" type=\"range\" min=\"0\" max=\"100\" value=\"0\"></div></div>",
+      "css": ".ds-preview {font-family:var(--text, \"Archivo\", \"Helvetica Neue\", Arial, sans-serif);font-size:1.0625rem;line-height:1.55;color:var(--ink, #0b1340);background:var(--board, #f4f6fb);padding:1.5rem}.ds-preview.ds-panel {background:var(--panel, #15309a);color:var(--line, #f2f5ff)} .ds-preview :focus-visible {outline:3px solid var(--panel, #15309a);outline-offset:3px;border-radius:var(--radius, 2px)} .ds-panel :focus-visible {outline-color:var(--amber, #ffb454)} .ds-push {\n  display: grid;\n  grid-template-columns: auto 1fr;\n  align-items: center;\n  gap: 1rem;\n}\n.ds-push label { font-weight: 600; font-size: 1rem; white-space: nowrap; }\n.ds-push-readout {\n  font-variant-numeric: tabular-nums;\n  font-size: 0.95rem;\n  color: var(--amber, #ffb454);\n  white-space: nowrap;\n}\n.ds-push-range {\n  -webkit-appearance: none;\n  appearance: none;\n  width: 100%;\n  height: 2.5rem;\n  margin: 0;\n  background: transparent;\n  cursor: pointer;\n}\n.ds-push-range::-webkit-slider-runnable-track {\n  height: 2px;\n  background: linear-gradient(to right, var(--amber, #ffb454) 0 var(--fill, 0%), rgba(242, 245, 255, 0.55) var(--fill, 0%) 100%);\n  border-radius: 1px;\n}\n.ds-push-range::-moz-range-track { height: 2px; background: rgba(242, 245, 255, 0.55); border-radius: 1px; }\n.ds-push-range::-moz-range-progress { height: 2px; background: var(--amber, #ffb454); }\n.ds-push-range::-webkit-slider-thumb {\n  -webkit-appearance: none;\n  width: 1.75rem; height: 1.75rem;\n  margin-top: calc(-0.875rem + 1px);\n  background: var(--amber, #ffb454);\n  border: 2px solid var(--ink, #0b1340);\n  border-radius: var(--radius, 2px);\n  box-shadow: 0 4px 14px -6px rgba(2, 8, 40, 0.9);\n  transition: transform 140ms cubic-bezier(0.2, 0.8, 0.2, 1);\n}\n.ds-push-range::-moz-range-thumb {\n  width: 1.75rem; height: 1.75rem;\n  background: var(--amber, #ffb454);\n  border: 2px solid var(--ink, #0b1340);\n  border-radius: var(--radius, 2px);\n  box-shadow: 0 4px 14px -6px rgba(2, 8, 40, 0.9);\n}\n.ds-push-range:hover::-webkit-slider-thumb, .ds-push-range:active::-webkit-slider-thumb { transform: scale(1.08); }\n.ds-push-range:focus-visible { outline: none; }\n.ds-push-range:focus-visible::-webkit-slider-thumb { outline: 3px solid var(--amber, #ffb454); outline-offset: 3px; }\n.ds-push-range:focus-visible::-moz-range-thumb { outline: 3px solid var(--amber, #ffb454); outline-offset: 3px; }\n@media(prefers-reduced-motion:reduce){.ds-preview *{transition-duration:0.01ms!important;animation-duration:0.01ms!important}}"
+    },
+    {
+      "name": "FAQ disclosure",
+      "kind": "custom",
+      "description": "Native disclosure with SVG plus-to-minus state.",
+      "html": "<div class=\"ds-preview\"><div class=\"ds-faq\"><details><summary>Is it really paintless?<svg class=\"ds-toggle\" viewBox=\"0 0 20 20\" aria-hidden=\"true\"><path d=\"M3 10h14\"/><path class=\"ds-v\" d=\"M10 3v14\"/></svg></summary><div class=\"ds-answer\"><p>No sanding, no filler, no primer, no paint.</p></div></details></div></div>",
+      "css": ".ds-preview {font-family:var(--text, \"Archivo\", \"Helvetica Neue\", Arial, sans-serif);font-size:1.0625rem;line-height:1.55;color:var(--ink, #0b1340);background:var(--board, #f4f6fb);padding:1.5rem}.ds-preview.ds-panel {background:var(--panel, #15309a);color:var(--line, #f2f5ff)} .ds-preview :focus-visible {outline:3px solid var(--panel, #15309a);outline-offset:3px;border-radius:var(--radius, 2px)} .ds-panel :focus-visible {outline-color:var(--amber, #ffb454)} .ds-faq details { border-bottom: 1px solid var(--ink-hair, rgba(11, 19, 64, 0.18)); }\n.ds-faq summary {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 1.5rem;\n  padding: 1.35rem 0;\n  font-weight: 600;\n  font-size: 1.2rem;\n  line-height: 1.3;\n  cursor: pointer;\n  list-style: none;\n}\n.ds-faq summary::-webkit-details-marker { display: none; }\n.ds-faq summary:hover { color: var(--panel, #15309a); }\n.ds-faq .ds-toggle { width: 1.25rem; height: 1.25rem; flex: none; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; }\n.ds-faq .ds-toggle .ds-v { transform-origin: 50% 50%; transition: transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 160ms; }\n.ds-faq details[open] .ds-toggle .ds-v { transform: rotate(90deg); opacity: 0; }\n.ds-faq .ds-answer { padding: 0 0 1.5rem; max-width: 62ch; }\n.ds-faq .ds-answer p { font-size: 1.05rem; line-height: 1.6; }\n.ds-faq .ds-answer a { color: var(--panel, #15309a); font-weight: 500; }\n.ds-faq summary em { font-style: italic; }.ds-answer p{margin:0}\n@media(prefers-reduced-motion:reduce){.ds-preview *{transition-duration:0.01ms!important;animation-duration:0.01ms!important}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Reading the Reflection",
+    "overview": "The line board makes the surface readable. Gentian-blue paint carries pale reflections; cool matte board carries blue-black rules. Compressed headings deliver the argument, while practical text and square plates make the next action explicit.\n\nDent Repair Pro keeps the phone, (816) 694-6288, as the primary action. Verified facts constrain every proof element: rendered imagery is identified as illustration, not customer repair photography. The built hero uses a composite raster plate and a separate bounded WebGL demonstration, rather than the overlapping live reflection described in the original surface brief.",
+    "keyCharacteristics": [
+      "Two materials: reflective panel and unbending matte board.",
+      "Compressed display caps, readable Archivo text, italic asides.",
+      "Ruled information, square plates, full/half/hollow circular marks.",
+      "Direct manipulation stays inside the demonstration."
+    ],
+    "rules": [
+      {
+        "name": "The Two Materials Rule",
+        "body": "Use pale text and reflection on panel; use blue-black text and straight rules on board. Do not bend the information surface.",
+        "section": "colors"
+      },
+      {
+        "name": "The Lamp Amber Rule",
+        "body": "Keep amber attached to interaction: the slider and readout, text selection, panel focus, and phone hover. Board focus is blue.",
+        "section": "colors"
+      },
+      {
+        "name": "The Compressed Voice Rule",
+        "body": "Use Big Shoulders Display for uppercase headings and Archivo for reading, labels, and italic qualifications.",
+        "section": "typography"
+      },
+      {
+        "name": "The Bounded Depth Rule",
+        "body": "Reserve blur and pronounced depth for the demonstration and floating call control; keep informational board sections ruled and flat.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do preserve the panel/board text pairing and contextual focus rings.",
+      "Do keep (816) 694-6288 as the primary action for Dent Repair Pro.",
+      "Do label generated and rendered imagery as illustration and use verified facts only.",
+      "Do retain native field labels, radio semantics, range keyboard input, and details/summary disclosure.",
+      "Do preserve static demonstration fallbacks and reduced-motion treatment."
+    ],
+    "donts": [
+      "Don't turn the board into a distorted reflective surface.",
+      "Don't substitute pill buttons for the square plate controls.",
+      "Don't present rendered plates as customer repair evidence.",
+      "Don't turn the worksheet into an implied quote submission."
+    ]
+  }
+}

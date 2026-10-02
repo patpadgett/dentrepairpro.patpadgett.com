@@ -1,0 +1,210 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>composite</title>
+<style>html,body{margin:0;background:#000}canvas{display:block}</style>
+</head><body>
+<canvas id="out"></canvas>
+<script>
+  // Composite a PDR line board's reflection onto a photographed paint plate.
+  //
+  // The plate (a Flux render of dark blue metallic paint in a dim shop) supplies the material. This
+  // script supplies what a board reflected in a door looks like: a finite white rectangle with black
+  // lines, seen in perspective, slightly out of focus, bowing with the door's crown, dimmer away from
+  // its light, tinted by the paint; the ding is a small concave lens that squeezes the reflected lines.
+  //
+  // ?plate=../.impeccable/plates/x.png&w=1440&h=900&fx=0.5&fy=0.5
+  //   &quad=x0,y0,x1,y1,x2,y2,x3,y3 (board corners TL,TR,BR,BL as fractions)
+  //   &lines=14&duty=0.60&blur=1.6&dent=0.715,0.47&sigma=0.085&pull=0.72&lamp=0.62,0.30&bow=0.05&depth=1
+  var q = new URLSearchParams(location.search);
+  var W = +q.get("w") || 1440, H = +q.get("h") || 900;
+  var out = document.getElementById("out"); out.width = W; out.height = H;
+  var ctx = out.getContext("2d");
+  var img = new Image();
+  img.onload = function () {
+    var fx = q.has("fx") ? +q.get("fx") : 0.5, fy = q.has("fy") ? +q.get("fy") : 0.5;
+    var sc = Math.max(W / img.width, H / img.height);
+    var dw = img.width * sc, dh = img.height * sc;
+    ctx.drawImage(img, (W - dw) * fx, (H - dh) * fy, dw, dh);
+    var plate = ctx.getImageData(0, 0, W, H);
+    var src = new Uint8ClampedArray(plate.data);
+
+    // --- the board, drawn flat in its own space, then placed by a projective map -------------------
+    var quad = (q.get("quad") || "0.46,0.14,1.16,-0.06,1.18,1.02,0.44,0.80").split(",").map(Number);
+    var P = [];
+    for (var i = 0; i < 4; i++) P.push([quad[i * 2] * W, quad[i * 2 + 1] * H]);
+    var lines = +q.get("lines") || 14, duty = q.has("duty") ? +q.get("duty") : 0.60;
+    var BW = 1200, BH = 1200;
+    var bc = document.createElement("canvas"); bc.width = BW; bc.height = BH;
+    var bg = bc.getContext("2d");
+    bg.fillStyle = "#f4f6fc"; bg.fillRect(0, 0, BW, BH);
+    bg.fillStyle = "#101218";
+    var period = BH / lines;
+    for (var k = 0; k < lines; k++) {
+      var yb = k * period + period * (1 - duty) * 0.5 + period * duty; // dark line after each white band
+      bg.fillRect(0, k * period + period * duty, BW, period * (1 - duty));
+    }
+    var board = bg.getImageData(0, 0, BW, BH).data;
+
+    // projective map screen -> board unit square (inverse of the quad's homography)
+    function homography(src, dst) { // 4 point pairs -> 3x3 matrix (as array of 9) mapping src->dst
+      var A = [], b = [];
+      for (var i = 0; i < 4; i++) {
+        var x = src[i][0], y = src[i][1], u = dst[i][0], v = dst[i][1];
+        A.push([x, y, 1, 0, 0, 0, -u * x, -u * y]); b.push(u);
+        A.push([0, 0, 0, x, y, 1, -v * x, -v * y]); b.push(v);
+      }
+      // gaussian elimination
+      var n = 8;
+      for (var c = 0; c < n; c++) {
+        var piv = c; for (var r = c + 1; r < n; r++) if (Math.abs(A[r][c]) > Math.abs(A[piv][c])) piv = r;
+        var t = A[c]; A[c] = A[piv]; A[piv] = t; var tb = b[c]; b[c] = b[piv]; b[piv] = tb;
+        for (var r2 = 0; r2 < n; r2++) if (r2 !== c) { var f = A[r2][c] / A[c][c]; for (var c2 = c; c2 < n; c2++) A[r2][c2] -= f * A[c][c2]; b[r2] -= f * b[c]; }
+      }
+      var h = []; for (var i2 = 0; i2 < n; i2++) h.push(b[i2] / A[i2][i2]); h.push(1);
+      return h;
+    }
+    var Hm = homography(P, [[0, 0], [1, 0], [1, 1], [0, 1]]);
+    function toBoard(x, y) {
+      var d = Hm[6] * x + Hm[7] * y + Hm[8];
+      return [(Hm[0] * x + Hm[1] * y + Hm[2]) / d, (Hm[3] * x + Hm[4] * y + Hm[5]) / d];
+    }
+
+    // --- the door: crown bow, the ding's lens --------------------------------------------------------
+    var dent = (q.get("dent") || "0.715,0.47").split(",").map(Number);
+    var cx = dent[0] * W, cy = dent[1] * H, sig = (+q.get("sigma") || 0.042) * W;
+    var pull = q.has("pull") ? +q.get("pull") : 0.62, depth = q.has("depth") ? +q.get("depth") : 1;
+    var bow = q.has("bow") ? +q.get("bow") : 0.11;
+    var lamp = (q.get("lamp") || "0.62,0.30").split(",").map(Number);
+    var lx = lamp[0] * W, ly = lamp[1] * H;
+    var blur = q.has("blur") ? +q.get("blur") : 2.6;
+
+    function sample(u, v) { // bilinear sample of the board, returns [r,g,b,inside]
+      if (u < 0 || v < 0 || u >= 1 || v >= 1) return null;
+      var x = u * (BW - 1), y = v * (BH - 1);
+      var x0 = Math.floor(x), y0 = Math.floor(y), tx = x - x0, ty = y - y0;
+      var x1 = Math.min(BW - 1, x0 + 1), y1 = Math.min(BH - 1, y0 + 1);
+      var i00 = (y0 * BW + x0) * 4, i10 = (y0 * BW + x1) * 4, i01 = (y1 * BW + x0) * 4, i11 = (y1 * BW + x1) * 4;
+      var r = (board[i00] * (1 - tx) + board[i10] * tx) * (1 - ty) + (board[i01] * (1 - tx) + board[i11] * tx) * ty;
+      return r / 255; // greyscale board
+    }
+    function sstep(a, b, x) { var t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); }
+    function hash(x, y) { var h = Math.sin(x * 127.1 + y * 311.7) * 43758.5453; return h - Math.floor(h); }
+    function vnoise(x, y) {
+      var xi = Math.floor(x), yi = Math.floor(y), fx = x - xi, fy = y - yi;
+      fx = fx * fx * (3 - 2 * fx); fy = fy * fy * (3 - 2 * fy);
+      var a = hash(xi, yi), b = hash(xi + 1, yi), c = hash(xi, yi + 1), d = hash(xi + 1, yi + 1);
+      return (a * (1 - fx) + b * fx) * (1 - fy) + (c * (1 - fx) + d * fx) * fy;
+    }
+    var peel = q.has("peel") ? +q.get("peel") : 2.2;
+
+    // first pass: the board's reflection as a grey layer with coverage, box-blurred for focus
+    var layer = new Float32Array(W * H), cover = new Float32Array(W * H);
+    var R = Math.max(1, Math.round(blur));
+    for (var y = 0; y < H; y++) {
+      for (var x = 0; x < W; x++) {
+        // the door's crown bends the reflection: a gentle parabola across the height
+        var yc = (y - H * 0.5) / H, xc = (x - W * 0.5) / W;
+        var px = x, py = y + bow * H * (yc * yc - 0.25) * (0.6 + 1.2 * xc * xc);
+        // orange peel and the panel's gentle waviness
+        py += (vnoise(x / 70, y / 70) - 0.5) * peel * 2.0 + (vnoise(x / 22 + 9, y / 22) - 0.5) * peel * 0.6;
+        px += (vnoise(x / 80 + 40, y / 80) - 0.5) * peel * 1.2;
+        // the ding: a concave lens, the reflection squeezed toward the low spot (monotonic, no fold)
+        var dx = px - cx, dy = py - cy;
+        var dxe = (dx * 0.96 + dy * 0.28) * 0.78, dye = (-dx * 0.28 + dy * 0.96);
+        var rr = Math.sqrt(dxe * dxe + dye * dye) / sig;
+        var g = Math.exp(-Math.pow(rr, 2.2) * 0.8);
+        var m = 1 / (1 - pull * depth * g);
+        var hx = cx + dx * m, hy = cy + dy * m;
+        var uv = toBoard(hx, hy);
+        var s = sample(uv[0], uv[1]);
+        var i = y * W + x;
+        if (s === null) { layer[i] = 0; cover[i] = 0; continue; }
+        // soft edges: the board's edge in reflection is a little out of focus too
+        var eu = Math.min(uv[0], 1 - uv[0]), ev = Math.min(uv[1], 1 - uv[1]);
+        var ef = q.has("edge") ? +q.get("edge") : 0.06;
+        var edge = sstep(0, ef, eu) * sstep(0, ef * 0.7, ev);
+        // the frame: the board's outer 2.5% is dark, like the lines, and a hair softer
+        var frameU = sstep(0.018, 0.034, eu), frameV = sstep(0.012, 0.026, ev);
+        var frame = 1 - frameU * frameV;
+        s = s * (1 - frame) + 0.08 * frame;
+        // squeezed hard enough and the lines grey out (several lines per pixel)
+        var grey = sstep(2.2, 3.4, m);
+        layer[i] = s * (1 - grey) + 0.62 * grey;
+        cover[i] = edge;
+      }
+    }
+    // separable box blur on layer and cover
+    function blurArr(a) {
+      var tmp = new Float32Array(W * H);
+      for (var y = 0; y < H; y++) for (var x = 0; x < W; x++) { var acc = 0, n = 0; for (var k = -R; k <= R; k++) { var xx = x + k; if (xx >= 0 && xx < W) { acc += a[y * W + xx]; n++; } } tmp[y * W + x] = acc / n; }
+      for (var x2 = 0; x2 < W; x2++) for (var y2 = 0; y2 < H; y2++) { var acc2 = 0, n2 = 0; for (var k2 = -R; k2 <= R; k2++) { var yy = y2 + k2; if (yy >= 0 && yy < H) { acc2 += tmp[yy * W + x2]; n2++; } } a[y2 * W + x2] = acc2 / n2; }
+    }
+    blurArr(layer); blurArr(cover);
+    // a wide, soft version of the coverage: the board's shadow on the shop lights it hangs in front of
+    var shade = new Float32Array(cover);
+    var R0 = R; R = 18; blurArr(shade); blurArr(shade); R = R0;
+
+    // the plate through the ding's lens: whatever the paint reflects bends with it
+    var d = plate.data;
+    for (var yw = 0; yw < H; yw++) {
+      for (var xw = 0; xw < W; xw++) {
+        var dxw = xw - cx, dyw = yw - cy;
+        var dxe2 = (dxw * 0.96 + dyw * 0.28) * 0.78, dye2 = (-dxw * 0.28 + dyw * 0.96);
+        var rr2 = Math.sqrt(dxe2 * dxe2 + dye2 * dye2) / sig;
+        if (rr2 > 3.2) continue;
+        var g2 = Math.exp(-Math.pow(rr2, 2.2) * 0.8);
+        var m2 = 1 / (1 - pull * depth * g2);
+        var sx = Math.round(cx + dxw * m2), sy = Math.round(cy + dyw * m2);
+        if (sx < 0 || sy < 0 || sx >= W || sy >= H) continue;
+        var ii = (yw * W + xw) * 4, jj = (sy * W + sx) * 4;
+        d[ii] = src[jj]; d[ii + 1] = src[jj + 1]; d[ii + 2] = src[jj + 2];
+      }
+    }
+
+    // second pass: compose onto the plate
+    var lampR = 0.46 * W;
+    for (var y3 = 0; y3 < H; y3++) {
+      for (var x3 = 0; x3 < W; x3++) {
+        var i3 = y3 * W + x3, j = i3 * 4;
+        var r = d[j] / 255, gch = d[j + 1] / 255, b = d[j + 2] / 255;
+        var L = 0.2126 * r + 0.7152 * gch + 0.0722 * b;
+        var a = cover[i3], sh = shade[i3];
+        var darken = q.has("dark") ? +q.get("dark") : 0.78;
+        // the whole plate a little darker: the shop is dim and the paint is deep
+        var r = r * darken, gch = gch * darken, b = b * darken;
+        if (a <= 0.001 && sh <= 0.001) { d[j] = r * 255; d[j + 1] = gch * 255; d[j + 2] = b * 255; continue; }
+        var tone = layer[i3];
+        // the board is lit from one lamp: bright and a touch warm near it, dimmer and cool toward its edges
+        var ddx = x3 - lx, ddy = y3 - ly;
+        var lw = Math.exp(-(ddx * ddx + ddy * ddy) / (lampR * lampR));
+        var bright = 0.42 + 0.58 * lw;
+        var wr = (0.86 + 0.14 * lw) * bright, wg = (0.90 + 0.07 * lw) * bright, wb = (1.00 - 0.06 * lw) * bright;
+        // the clear coat reflects more where the paint already shows reflection (gloss), and the paint's
+        // flake and grain ride through the reflection
+        var gloss = 0.58 + 0.42 * sstep(0.03, 0.30, L);
+        var grain = 0.86 + 0.28 * Math.min(1, L / 0.35);
+        // the board blocks the shop lights where it hangs: the plate's own highlights dim under it
+        var pr = r * (1 - 0.40 * sh), pg = gch * (1 - 0.40 * sh), pb = b * (1 - 0.40 * sh);
+        // the white face and the black lines, both through the coat, both tinted by the pigment underneath
+        var k = a * gloss;
+        var fr = (wr * tone + pr * 0.55 * (1 - tone)) * grain, fg = (wg * tone + pg * 0.55 * (1 - tone)) * grain, fb = (wb * tone + pb * 0.55 * (1 - tone)) * grain;
+        var tint = 0.10;
+        fr = fr * (1 - tint) + pr * tint; fg = fg * (1 - tint) + pg * tint; fb = fb * (1 - tint) + pb * tint;
+        var orr = pr * (1 - k) + fr * k, og = pg * (1 - k) + fg * k, ob = pb * (1 - k) + fb * k;
+        // the ding's shoulder: a faint dark ring where the surface turns, a lit crescent toward the lamp
+        var dx4 = ((x3 - cx) * 0.96 + (y3 - cy) * 0.28) * 0.78, dy4 = (-(x3 - cx) * 0.28 + (y3 - cy) * 0.96);
+        var rr4 = Math.sqrt(dx4 * dx4 + dy4 * dy4) / sig;
+        var facing = -(dy4 * (ly - cy) + dx4 * (lx - cx)) / (Math.sqrt(dx4 * dx4 + dy4 * dy4) * Math.sqrt((lx - cx) * (lx - cx) + (ly - cy) * (ly - cy)) + 1e-6);
+        var ring = Math.exp(-Math.pow((rr4 - 1.05) / 0.16, 2)) * depth;
+        var f = 1 - 0.06 * ring * (0.5 - 0.5 * facing) + 0.16 * ring * Math.max(0, facing) * a;
+        d[j] = Math.min(255, Math.max(0, orr * f * 255));
+        d[j + 1] = Math.min(255, Math.max(0, og * f * 255));
+        d[j + 2] = Math.min(255, Math.max(0, ob * f * 255));
+      }
+    }
+    ctx.putImageData(plate, 0, 0);
+    document.title = "ok";
+  };
+  img.onerror = function () { document.title = "plate failed"; };
+  img.src = q.get("plate");
+</script>
+</body></html>
